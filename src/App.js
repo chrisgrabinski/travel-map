@@ -3,10 +3,17 @@ import React, { useState } from "react";
 const App = () => {
   const [visitedCountries, setVisitedCountries] = useState([]);
   const [countryInput, setCountryInput] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   function addCountry(event) {
     event.preventDefault();
-    setVisitedCountries([...visitedCountries, countryInput]);
+
+    if (visitedCountries.includes(countryInput)) {
+      setErrorMessage(`You've already added ${countryInput} to the list!`);
+    } else {
+      setErrorMessage(null);
+      setVisitedCountries([...visitedCountries, countryInput]);
+    }
   }
 
   function removeCountry(country) {
@@ -27,6 +34,7 @@ const App = () => {
             onChange={event => setCountryInput(event.target.value)}
           />
           <button type="submit">Add country</button>
+          {errorMessage && <p>{errorMessage}</p>}
         </form>
       </div>
       <div>
