@@ -14,6 +14,8 @@ const App = () => {
       setErrorMessage(null);
       setVisitedCountries([...visitedCountries, countryInput]);
     }
+
+    setCountryInput("");
   }
 
   function removeCountry(country) {
