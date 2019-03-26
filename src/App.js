@@ -9,6 +9,14 @@ const App = () => {
     setVisitedCountries([...visitedCountries, countryInput]);
   }
 
+  function removeCountry(country) {
+    const newVisitedCountries = visitedCountries.filter(value => {
+      return value !== country;
+    });
+
+    setVisitedCountries(newVisitedCountries);
+  }
+
   return (
     <div className="App">
       <div>
@@ -24,7 +32,12 @@ const App = () => {
       <div>
         <ul>
           {visitedCountries.map(visitedCountry => (
-            <li key={visitedCountry}>{visitedCountry}</li>
+            <li key={visitedCountry}>
+              {visitedCountry}{" "}
+              <button onClick={() => removeCountry(visitedCountry)}>
+                Remove country
+              </button>
+            </li>
           ))}
         </ul>
       </div>
