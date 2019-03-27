@@ -50,7 +50,7 @@ const App = () => {
           <datalist id="countries">
             {countriesList.map(country => (
               <option
-                key={`datalist-option-${country.alpha2Code}`}
+                key={`datalist-country-${country.alpha2Code}`}
                 value={country.name}
               />
             ))}
