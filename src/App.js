@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Chart } from "react-google-charts";
 
 const App = () => {
   const [visitedCountries, setVisitedCountries] = useState([]);
@@ -62,6 +63,28 @@ const App = () => {
           <button type="submit">Add country</button>
           {errorMessage && <p>{errorMessage}</p>}
         </form>
+      </div>
+      <div>
+        <Chart
+          chartType="GeoChart"
+          data={[
+            ["Country"],
+            ...visitedCountries.map((country, index) => {
+              let newCountry = [];
+              newCountry.push(country.alpha2Code);
+
+              return newCountry;
+            })
+          ]}
+          width="100%"
+          height="720"
+          legendToggle
+          options={{
+            backgroundColor: "#81d4fa",
+            datalessRegionColor: "white",
+            defaultColor: "#095aff"
+          }}
+        />
       </div>
       <div>
         <ul>
