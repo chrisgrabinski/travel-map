@@ -1,13 +1,13 @@
 {
   "main.css": "/travel-map/static/css/main.c61c5c85.chunk.css",
-  "main.js": "/travel-map/static/js/main.9785356d.chunk.js",
-  "main.js.map": "/travel-map/static/js/main.9785356d.chunk.js.map",
+  "main.js": "/travel-map/static/js/main.31f46bcb.chunk.js",
+  "main.js.map": "/travel-map/static/js/main.31f46bcb.chunk.js.map",
   "runtime~main.js": "/travel-map/static/js/runtime~main.b94ffd48.js",
   "runtime~main.js.map": "/travel-map/static/js/runtime~main.b94ffd48.js.map",
-  "static/js/2.255afa92.chunk.js": "/travel-map/static/js/2.255afa92.chunk.js",
-  "static/js/2.255afa92.chunk.js.map": "/travel-map/static/js/2.255afa92.chunk.js.map",
+  "static/js/2.bb4f7cee.chunk.js": "/travel-map/static/js/2.bb4f7cee.chunk.js",
+  "static/js/2.bb4f7cee.chunk.js.map": "/travel-map/static/js/2.bb4f7cee.chunk.js.map",
   "index.html": "/travel-map/index.html",
-  "precache-manifest.8935eb17cfc8703b88786849b23d2f9a.js": "/travel-map/precache-manifest.8935eb17cfc8703b88786849b23d2f9a.js",
+  "precache-manifest.e1949315e5f0f42616ec51dec1ddf0b5.js": "/travel-map/precache-manifest.e1949315e5f0f42616ec51dec1ddf0b5.js",
   "service-worker.js": "/travel-map/service-worker.js",
   "static/css/main.c61c5c85.chunk.css.map": "/travel-map/static/css/main.c61c5c85.chunk.css.map"
 }
