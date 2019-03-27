@@ -17,6 +17,14 @@ const App = () => {
       });
   }, []);
 
+  function testForCountryDuplicate(countryName) {
+    if (visitedCountries.find(country => country.name === countryName)) {
+      return true;
+    }
+
+    return false;
+  }
+
   function getCountryData(countryName) {
     return countriesList.find(country => country.name === countryName);
   }
@@ -24,7 +32,7 @@ const App = () => {
   function addCountry(event) {
     event.preventDefault();
 
-    if (visitedCountries.includes(countryInput)) {
+    if (testForCountryDuplicate(countryInput)) {
       setErrorMessage(`You've already added ${countryInput} to the list!`);
     } else {
       setErrorMessage(null);
