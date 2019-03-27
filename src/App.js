@@ -6,6 +6,7 @@ const App = () => {
   const [countryInput, setCountryInput] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [countriesList, setCountriesList] = useState([]);
+  const [region, setRegion] = useState("world");
 
   useEffect(() => {
     fetch("https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;flag")
@@ -71,6 +72,19 @@ const App = () => {
           <button type="submit">Add country</button>
           {errorMessage && <p>{errorMessage}</p>}
         </form>
+        <select
+          name="region"
+          id="region"
+          onChange={event => setRegion(event.target.value)}
+          onBlur={event => setRegion(event.target.value)}
+        >
+          <option value="world">World</option>
+          <option value="002">Africa</option>
+          <option value="150">Europe</option>
+          <option value="019">Americas</option>
+          <option value="142">Asia</option>
+          <option value="009">Oceania</option>
+        </select>
       </div>
       <div>
         <Chart
@@ -90,7 +104,8 @@ const App = () => {
           options={{
             backgroundColor: "#81d4fa",
             datalessRegionColor: "white",
-            defaultColor: "#095aff"
+            defaultColor: "#095aff",
+            region: region
           }}
         />
       </div>
