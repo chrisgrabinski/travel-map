@@ -7,7 +7,7 @@ const App = () => {
   const [countriesList, setCountriesList] = useState([]);
 
   useEffect(() => {
-    fetch("https://restcountries.eu/rest/v2/all?fields=name;alpha2Code")
+    fetch("https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;flag")
       .then(function(response) {
         return response.json();
       })
@@ -16,6 +16,10 @@ const App = () => {
       });
   }, []);
 
+  function getCountryData(countryName) {
+    return countriesList.find(country => country.name === countryName);
+  }
+
   function addCountry(event) {
     event.preventDefault();
 
@@ -23,15 +27,15 @@ const App = () => {
       setErrorMessage(`You've already added ${countryInput} to the list!`);
     } else {
       setErrorMessage(null);
-      setVisitedCountries([...visitedCountries, countryInput]);
+      setVisitedCountries([...visitedCountries, getCountryData(countryInput)]);
     }
 
     setCountryInput("");
   }
 
-  function removeCountry(country) {
-    const newVisitedCountries = visitedCountries.filter(value => {
-      return value !== country;
+  function removeCountry(countryCode) {
+    const newVisitedCountries = visitedCountries.filter(visitedCountry => {
+      return visitedCountry.alpha2Code !== countryCode;
     });
 
     setVisitedCountries(newVisitedCountries);
@@ -61,10 +65,11 @@ const App = () => {
       </div>
       <div>
         <ul>
-          {visitedCountries.map(visitedCountry => (
-            <li key={visitedCountry}>
-              {visitedCountry}{" "}
-              <button onClick={() => removeCountry(visitedCountry)}>
+          {visitedCountries.map(country => (
+            <li key={country.alpha2Code}>
+              <img src={country.flag} alt="" width="24" height="16" />
+              {country.name}{" "}
+              <button onClick={() => removeCountry(country.alpha2Code)}>
                 Remove country
               </button>
             </li>
