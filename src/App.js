@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { css } from "emotion";
 import { Chart } from "react-google-charts";
 
 const App = () => {
@@ -53,13 +54,39 @@ const App = () => {
 
   return (
     <div className="App">
-      <div>
-        <form action="" onSubmit={addCountry}>
+      <div
+        className={css`
+          left: 32px;
+          position: fixed;
+          top: 32px;
+          z-index: 1;
+        `}
+      >
+        <form
+          action=""
+          onSubmit={addCountry}
+          className={css`
+            display: flex;
+          `}
+        >
           <input
             type="text"
             value={countryInput}
             list="countries"
             onChange={event => setCountryInput(event.target.value)}
+            className={css`
+              background-color: white;
+              border-radius: 5px;
+              border: 0;
+              box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.25);
+              flex-shrink: 0;
+              font-size: 16px;
+              height: 56px;
+              margin-right: 16px;
+              max-width: 320px;
+              padding: 0 16px;
+              width: 100%;
+            `}
           />
           <datalist id="countries">
             {countriesList.map(country => (
@@ -69,7 +96,23 @@ const App = () => {
               />
             ))}
           </datalist>
-          <button type="submit">Add country</button>
+          <button
+            type="submit"
+            className={css`
+              background-color: #0054ff;
+              border-radius: 5px;
+              border: 0;
+              box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.25);
+              color: white;
+              flex-shrink: 0;
+              font-size: 16px;
+              font-weight: bold;
+              height: 56px;
+              padding: 0 28px;
+            `}
+          >
+            Add country
+          </button>
           {errorMessage && <p>{errorMessage}</p>}
         </form>
         <select
@@ -77,6 +120,22 @@ const App = () => {
           id="region"
           onChange={event => setRegion(event.target.value)}
           onBlur={event => setRegion(event.target.value)}
+          className={css`
+            appearance: none;
+            background-color: white;
+            border-radius: 5px;
+            border: 0;
+            box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.25);
+            flex-shrink: 0;
+            font-size: 16px;
+            height: 56px;
+            max-width: 192px;
+            padding: 0 16px;
+            position: fixed;
+            right: 32px;
+            top: 32px;
+            width: 100%;
+          `}
         >
           <option value="world">World</option>
           <option value="002">Africa</option>

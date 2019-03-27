@@ -4,6 +4,7 @@
   "homepage": "https://chrisgrabinski.github.io/travel-map",
   "private": true,
   "dependencies": {
+    "emotion": "^10.0.9",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-google-charts": "^3.0.11",
